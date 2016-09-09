@@ -52,13 +52,13 @@ public function Listaralbumespecifico ($codigo)
  try
 		{
 
-		     $result= $this->modelo->operacion("INSERT INTO album (titulo , contenido ,usuario_id,nivel_id,fechacreacion) 
+		     $result= $this->modelo->operacion("INSERT INTO album (titulo , contenido ,usuario_id,nivel_id) 
 			 values (:titulo, :contenido, :usuario_id, :nivel_id, :fechacreacion)"
 			,array(":titulo"=>$ObGenero-> gettitulo()
 					,":contenido" => $ObGenero-> getcontenido()
 					,":usuario_id" => $ObGenero-> getusuario_id()
-					,":nivel_id" => $ObGenero-> getnivel_id()			
-					,":fechacreacion" => date("y-m-d")));
+					,":nivel_id" => $ObGenero-> getnivel_id()));			
+					
                        
 			return $result;
 		}

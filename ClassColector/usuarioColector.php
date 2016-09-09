@@ -67,7 +67,7 @@ public function validaLogin ($usuario, $clave)
 		{
 echo date("y-m-d");
 		     $result= $this->modelo->operacion("INSERT INTO usuario (pnombre , snombre ,usuario ,email ,clave ,codigo,estado,administrador ,fecharegistro  ) 
-			 values (:pnombre, :snombre, :usuario, :email, :clave, :codigo, :estado, :administrador, :fecharegistro )",
+			 values (:pnombre, :snombre, :usuario, :email, :clave, :codigo, :estado, :administrador )",
 			 array(":pnombre"=>$ObGenero-> getpnombre()
 				,":snombre" => $ObGenero-> getsnombre()
 				,":usuario" => $ObGenero-> getusuario()
@@ -75,8 +75,8 @@ echo date("y-m-d");
 				,":clave" => $ObGenero-> getclave()
 				,":codigo" => $ObGenero-> getcodigo()
 				,":estado" => $ObGenero-> getestado()
-				,":administrador" => $ObGenero-> getadministrador()
-				,":fecharegistro" => date("y-m-d")));
+				,":administrador" => $ObGenero-> getadministrador()));
+				//,":fecharegistro" => date("y-m-d")));
                        
 			return $result;
 		}
