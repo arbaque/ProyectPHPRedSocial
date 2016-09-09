@@ -66,8 +66,8 @@ public function validaLogin ($usuario, $clave)
  try
 		{
 echo date("y-m-d");
-		     $result= $this->modelo->operacion("INSERT INTO usuario (pnombre , snombre ,usuario ,email ,clave ,codigo,estado,administrador ,fecharegistro  ) 
-			 values (:pnombre, :snombre, :usuario, :email, :clave, :codigo, :estado, :administrador )",
+		     $result= $this->modelo->operacion("INSERT INTO usuario (pnombre , snombre ,usuario ,email ,clave ,codigo,estado,administrador ) 
+			 values (:pnombre, :snombre, :usuario, :email, :clave, :codigo, :estado, :administrador  )",
 			 array(":pnombre"=>$ObGenero-> getpnombre()
 				,":snombre" => $ObGenero-> getsnombre()
 				,":usuario" => $ObGenero-> getusuario()

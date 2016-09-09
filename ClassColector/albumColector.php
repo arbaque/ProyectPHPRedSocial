@@ -53,7 +53,7 @@ public function Listaralbumespecifico ($codigo)
 		{
 
 		     $result= $this->modelo->operacion("INSERT INTO album (titulo , contenido ,usuario_id,nivel_id) 
-			 values (:titulo, :contenido, :usuario_id, :nivel_id, :fechacreacion)"
+			 values (:titulo, :contenido, :usuario_id, :nivel_id)"
 			,array(":titulo"=>$ObGenero-> gettitulo()
 					,":contenido" => $ObGenero-> getcontenido()
 					,":usuario_id" => $ObGenero-> getusuario_id()
