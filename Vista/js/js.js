@@ -73,6 +73,24 @@ function lista_pais() {
     ajax.send(null);
 }
 
+
+function lista_rol() {
+    var resultado = document.getElementById('page-wrapper');
+  //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
+    ajax = objetoAjax();
+    ajax.open("GET", "../Rol.php", true);
+	//alert("dd");
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4) {
+//alert(ajax.responseText);
+            resultado.innerHTML = ajax.responseText;
+            //tables();
+        }
+    }
+    ajax.send(null);
+}
+
+
 function lista_acercade() {
     var resultado = document.getElementById('page-wrapper');
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';

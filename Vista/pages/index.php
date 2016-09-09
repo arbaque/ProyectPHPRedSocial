@@ -72,7 +72,7 @@ $clave = $_SESSION['clave'];
                         <li class="divider"></li>
                         <li><a href="#" onClick="openlogin();"><i class="fa fa-sign-out fa-fw"></i> Iniciar Sesion</a>
                         </li>
-					<?php  }?>
+					<?php }?>
 					<?php if (isset($_SESSION['usuario'])) {?>
 						<li class="divider"></li>
                         <li><a href="#" onClick="openlogincerrar();"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesion</a>
@@ -106,7 +106,7 @@ $clave = $_SESSION['clave'];
 						<?php  }?>
 						<?php if (isset($_SESSION['usuario'])) {?>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Perfil<span class="fa arrow"></span></a>                            
+                            <a href="#" onClick="lista_pais();"><i class="fa fa-dashboard fa-fw"></i> Pais </a>                            
                         </li>
 						<?php  }?>
 						<?php if (isset($_SESSION['usuario'])) {?>
@@ -116,12 +116,12 @@ $clave = $_SESSION['clave'];
 						<?php  }?>
 						<?php if (isset($_SESSION['usuario'])) {?>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Imagenes</a>
+                            <a href="#" onClick="lista_rol();" ><i class="fa fa-edit fa-fw"></i> Rol</a>
                         </li>
 						<?php  }?>
 						
 						 <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Acerca de ..</a>
+                            <a href="#" onClick="lista_acercade();" ><i class="fa fa-edit fa-fw"></i> Acerca de ..</a>
                         </li>
                         
                     </ul>
