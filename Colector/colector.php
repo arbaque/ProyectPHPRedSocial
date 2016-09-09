@@ -56,7 +56,7 @@ public function Listar($table, $codigo)
 
 	 if ($count>0){
 			$count =1;
-			echo '1 row has been inserted';
+			echo '1 Registro Procesado Con exito';
 		}
         //$stm->execute($objetoClass);
         //$count = $stm->rowCount();

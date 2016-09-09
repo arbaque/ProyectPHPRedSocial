@@ -57,6 +57,38 @@ function lista_album() {
 }
 
 
+function lista_pais() {
+    var resultado = document.getElementById('page-wrapper');
+  //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
+    ajax = objetoAjax();
+    ajax.open("GET", "../Pais.php", true);
+	//alert("dd");
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4) {
+//alert(ajax.responseText);
+            resultado.innerHTML = ajax.responseText;
+            //tables();
+        }
+    }
+    ajax.send(null);
+}
+
+function lista_acercade() {
+    var resultado = document.getElementById('page-wrapper');
+  //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
+    ajax = objetoAjax();
+    ajax.open("GET", "../Acercade.php", true);
+	//alert("dd");
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4) {
+//alert(ajax.responseText);
+            resultado.innerHTML = ajax.responseText;
+            //tables();
+        }
+    }
+    ajax.send(null);
+}
+
 
 $(document).ready(function() {
 			//alert('sdfgs');
@@ -129,13 +161,40 @@ function guardar_album() {
     ajax.send(null);
 }
 
+function guardar_pais() {
+    var resultado = document.getElementById('caja');
+    ajax = objetoAjax();
+    ajax.open("GET", "../GuardarPais.php", true);
+	ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4) {
+            resultado.innerHTML = ajax.responseText;
+			$("#sendpais").click(function(event){				
+               $.post( 
+                  "../AccionGuardarPais.php",
+                  $('#myFormpais').serialize(),
+                  function(data) {
+					  alert(data);
+					  lista_pais();
+					// <?php if (isset($_SESSION['usuario'])) {?>  lista_persona();
+					//	 <?php }?>
+                     //$('#stage').html(data);
+                  }
+               );
+					
+            });          
+        }
+    }
+    ajax.send(null);
+}
+
+
 
 function editar_persona(codigo) {
     var resultado = document.getElementById('caja');
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../EditarPersona.php?id="+codigo, true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
@@ -166,7 +225,7 @@ function editar_album(codigo) {
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../EditarAlbum.php?id="+codigo, true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
@@ -191,6 +250,35 @@ alert("boton");
     ajax.send(null);
 }
 
+function editar_pais(codigo) {
+    var resultado = document.getElementById('caja');
+  //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
+    ajax = objetoAjax();
+    ajax.open("GET", "../EditarPais.php?id="+codigo, true);
+	//alert("dd");
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4) {
+//alert(ajax.responseText);
+            resultado.innerHTML = ajax.responseText;
+            $("#updatepais").click(function(event){		
+//alert("boton");			
+               $.post( 
+                  "../AccionEditarPais.php",
+                  $('#myFormupdatepais').serialize(),
+                  function(data) {
+					  alert(data);
+					  lista_pais();
+					// <?php if (isset($_SESSION['usuario'])) {?>  lista_persona();
+					//	 <?php }?>
+                     //$('#stage').html(data);
+                  }
+               );
+					
+            }); 
+        }
+    }
+    ajax.send(null);
+}
 
 
 function Eliminar_persona(codigo) {
@@ -198,7 +286,7 @@ function Eliminar_persona(codigo) {
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../AccionEliminarPersona.php?id="+codigo, true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
@@ -232,7 +320,7 @@ function Eliminar_album(codigo) {
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../AccionEliminarAlbum.php?id="+codigo, true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
@@ -261,12 +349,46 @@ function Eliminar_album(codigo) {
 }
 
 
+
+function Eliminar_pais(codigo) {
+    var resultado = document.getElementById('caja');
+  //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
+    ajax = objetoAjax();
+    ajax.open("GET", "../AccionEliminarPais.php?id="+codigo, true);
+	//alert("dd");
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4) {
+//alert(ajax.responseText);
+            resultado.innerHTML = ajax.responseText;
+			
+			 lista_pais();
+			 
+            // $("#updatepersona").click(function(event){		
+// alert("boton");			
+               // $.post( 
+                  // "../AccionEliminarPersona.php",
+                  // $('#myFormeliminar').serialize(),
+                  // function(data) {
+					  // alert(data);
+					  // lista_persona();
+					// // <?php if (isset($_SESSION['usuario'])) {?>  lista_persona();
+					// //	 <?php }?>
+                     // //$('#stage').html(data);
+                  // }
+               // );
+					
+            // }); 
+        }
+    }
+    ajax.send(null);
+}
+
 function openlogin() {
     var resultado = document.getElementById('page-wrapper');
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../login.php", true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
@@ -278,7 +400,9 @@ function openlogin() {
                   $('#myFormlogin').serialize(),
                   function(data) {
 					  alert(data);
+					  
 					  lista_persona();
+					  location.reload();
 					// <?php if (isset($_SESSION['usuario'])) {?>  lista_persona();
 					//	 <?php }?>
                      //$('#stage').html(data);
@@ -286,6 +410,8 @@ function openlogin() {
                );
 					
             }); 
+			
+			
         }
     }
     ajax.send(null);
@@ -296,7 +422,7 @@ function openlogin2() {
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../login.php", true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
@@ -313,12 +439,13 @@ function openlogincerrar() {
   //  resultado.innerHTML = '<br>ccc<br><br><center><img src="img/45.gif"></center>';
     ajax = objetoAjax();
     ajax.open("GET", "../AccionCerrarSesion.php", true);
-	alert("dd");
+	//alert("dd");
     ajax.onreadystatechange = function() {
         if (ajax.readyState == 4) {
 //alert(ajax.responseText);
             resultado.innerHTML = ajax.responseText;
-            openlogin2();
+         //   openlogin2();
+			location.reload();
         }
     }
     ajax.send(null);
