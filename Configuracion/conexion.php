@@ -3,13 +3,13 @@ class conexion extends PDO
 {
  
  //nombre base de datos
- private $dbname = "dbRedSocialAdulto";
+ private $dbname = "d51dpscapcrolm";
  //nombre servidor
- private $host = "localhost";
+ private $host = "ec2-174-129-4-75.compute-1.amazonaws.com";
  //nombre usuarios base de datos
- private $user = "postgres";
+ private $user = "gthhtrrbftmyth";
  //password usuario
- private $pass = "password";
+ private $pass = " F2ogeeUwWMD07UejIykzhIjfrL";
  //puerto postgreSql
  private $port = "5432";
  private $dbh;
